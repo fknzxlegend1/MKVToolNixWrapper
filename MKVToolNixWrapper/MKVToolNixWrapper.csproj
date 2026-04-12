@@ -7,8 +7,12 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Assets\Berserk.ico</ApplicationIcon>
-    <AssemblyVersion>1.0.0.4</AssemblyVersion>
-    <FileVersion>1.0.0.4</FileVersion>
+    <AssemblyVersion>1.0.0.5</AssemblyVersion>
+    <FileVersion>1.0.0.5</FileVersion>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <SelfContained>true</SelfContained>
+	<DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
