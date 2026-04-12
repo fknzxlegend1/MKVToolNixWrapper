@@ -44,7 +44,6 @@ namespace MKVToolNixWrapper
             TrackGrid.IsEnabled = false;
             AnalyseButton.IsEnabled = false;
             BatchButton.IsEnabled = false;
-            PlayIntroSound();
             MkvMergeExistsCheck();
             StartPulsing(BrowseFolderButton, 2000);
             StartPulsing(SelectedFolderPathLabel, 2000);
@@ -661,12 +660,6 @@ namespace MKVToolNixWrapper
         private void PlayNotificationSound()
         {
             var notificationSound = new SoundPlayer(GetType().Assembly.GetManifestResourceStream("MKVToolNixWrapper.Assets.SH3Menu.wav"));
-            notificationSound.Play();
-        }
-
-        private void PlayIntroSound()
-        {
-            var notificationSound = new SoundPlayer(GetType().Assembly.GetManifestResourceStream("MKVToolNixWrapper.Assets.SH2Menu.wav"));
             notificationSound.Play();
         }
 
