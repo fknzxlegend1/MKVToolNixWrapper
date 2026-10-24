@@ -243,7 +243,6 @@ public partial class MainWindow
         }
         finally
         {
-            // Hide mouse spinner and enable browse button
             Dispatcher.Invoke(() => Mouse.OverrideCursor = null);
             BrowseFolderButton.IsEnabled = true;
         }
@@ -740,7 +739,6 @@ public partial class MainWindow
         }
     }
 
-    // ReSharper disable once InconsistentNaming
     private void ToggleUI(bool enable)
     {
         TrackGrid.IsEnabled = enable;
@@ -874,8 +872,6 @@ public partial class MainWindow
         ForceSetControlItemsSourceBinding(FileListBox, FileList);
     }
 
-    // Hack to avoid using INotifyPropertyChanged as it's messy to implement and restricts us to only using ObservableCollection :/
-    // Nulling the item source and re-assigning it our collection effectively re-syncs with the UI. Aware this is not great but the 'offical' solution is some what to be desired.
     private void RequestFileListRefresh()
     {
         if (Interlocked.CompareExchange(ref _fileListRefreshQueued, 1, 0) != 0)
