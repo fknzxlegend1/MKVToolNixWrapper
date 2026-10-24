@@ -8,41 +8,56 @@
     </Window.TaskbarItemInfo>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-            <ColumnDefinition MinWidth="798"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+            <ColumnDefinition MinWidth="798" />
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="BrowseFolderButton" Content="Browse" Width="80" Margin="7,7,7,7" Click="BrowseFolderButton_Click"/>
-        <Label x:Name="SelectedFolderPathLabel" Content="Please select a directory to process" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Height="42"/>
+        <Button Grid.Row="0" Grid.Column="0" x:Name="BrowseFolderButton" Content="Browse" Width="80" Margin="7,7,7,7"
+                Click="BrowseFolderButton_Click" />
+        <Label Grid.Row="0" x:Name="SelectedFolderPathLabel" Content="Please select a directory to process"
+               VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Height="42" />
 
-        <Button x:Name="AnalyseButton" Content="Analyse" Width="80" Click="AnalyseButton_Click" Grid.Column="2" HorizontalAlignment="Left" Margin="0,6,0,7"/>
-        <Button x:Name="BatchButton" Content="Start Batch" Width="80" Click="BatchButton_Click" Grid.Column="2" HorizontalAlignment="Left" Margin="90,6,0,7"/>
-        <Button x:Name="HelpButton" Content="Help" Width="80" Click="HelpButton_Click" Grid.Column="2" HorizontalAlignment="Left" Margin="180,6,0,7"/>
+        <Button Grid.Row="0" x:Name="AnalyseButton" Content="Analyse" Width="80" Click="AnalyseButton_Click"
+                Grid.Column="2" HorizontalAlignment="Left" Margin="0,6,0,7" />
+        <Button Grid.Row="0" x:Name="BatchButton" Content="Start Batch" Width="80" Click="BatchButton_Click"
+                Grid.Column="2" HorizontalAlignment="Left" Margin="90,6,0,7" />
+        <Button Grid.Row="0" x:Name="HelpButton" Content="Help" Width="80" Click="HelpButton_Click" Grid.Column="2"
+                HorizontalAlignment="Left" Margin="180,6,0,7" />
 
-        <Label Content="File list" Height="27" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="SelectAllFileButton" Grid.Column="1" Grid.Row="1" Content="Select All" Width="80" HorizontalAlignment="Right" Margin="0,0,6,2" Click="SelectAllFileButton_Click"/>
-        <Button x:Name="SelectNoneFileButton" Grid.Column="1" Grid.Row="1" Content="Select None" Width="80" HorizontalAlignment="Right" Margin="0,0,95,2" Click="SelectNoneFileButton_Click"/>
-        <Button x:Name="InvertFileButton" Grid.Column="1" Grid.Row="1" Content="Invert" Width="80" HorizontalAlignment="Right" Margin="0,0,185,2" Click="InvertFileButton_Click"/>
-        <Button x:Name="DeselectFailsButton" Grid.Column="1" Grid.Row="1" Content="Deselect Fails" Margin="0,0,276,2" Click="DeselectFailsButton_Click" HorizontalAlignment="Right" Width="80"/>
-        <Button x:Name="SelectUnprocessedButton" Grid.Column="1" Grid.Row="1" Content="Select Unprocessed" Margin="0,0,367,2" Click="SelectUnprocessedButton_Click" HorizontalAlignment="Right" Width="115"/>
+        <Label Content="File list" Height="27" Grid.Column="0" Grid.Row="1" />
+        <Button x:Name="SelectAllFileButton" Grid.Column="1" Grid.Row="1" Content="Select All" Width="80"
+                HorizontalAlignment="Right" Margin="0,0,6,2" Click="SelectAllFileButton_Click" />
+        <Button x:Name="SelectNoneFileButton" Grid.Column="1" Grid.Row="1" Content="Select None" Width="80"
+                HorizontalAlignment="Right" Margin="0,0,95,2" Click="SelectNoneFileButton_Click" />
+        <Button x:Name="InvertFileButton" Grid.Column="1" Grid.Row="1" Content="Invert" Width="80"
+                HorizontalAlignment="Right" Margin="0,0,185,2" Click="InvertFileButton_Click" />
+        <Button x:Name="DeselectFailsButton" Grid.Column="1" Grid.Row="1" Content="Deselect Fails" Margin="0,0,276,2"
+                Click="DeselectFailsButton_Click" HorizontalAlignment="Right" Width="80" />
+        <Button x:Name="SelectUnprocessedButton" Grid.Column="1" Grid.Row="1" Content="Select Unprocessed"
+                Margin="0,0,367,2" Click="SelectUnprocessedButton_Click" HorizontalAlignment="Right" Width="115" />
 
-        <Label Content="Tracks" Height="27" Grid.Row="1" Grid.Column="3"/>
-        <Button x:Name="SelectAllTrackButton" Grid.Column="3" Grid.Row="1" Content="Select All" Width="80" HorizontalAlignment="Right" Margin="0,0,6,2" Click="SelectAllTrackButton_Click"/>
-        <Button x:Name="SelectNoneTrackButton" Grid.Column="3" Grid.Row="1" Content="Select None" Width="80" HorizontalAlignment="Right" Margin="0,0,95,2" Click="SelectNoneTrackButton_Click"/>
+        <Label Content="Tracks" Height="27" Grid.Row="1" Grid.Column="2" />
+        <Button x:Name="SelectAllTrackButton" Grid.Column="2" Grid.Row="1" Content="Select All" Width="80"
+                HorizontalAlignment="Right" Margin="0,0,6,2" Click="SelectAllTrackButton_Click" />
+        <Button x:Name="SelectNoneTrackButton" Grid.Column="2" Grid.Row="1" Content="Select None" Width="80"
+                HorizontalAlignment="Right" Margin="0,0,95,2" Click="SelectNoneTrackButton_Click" />
 
-        <ListBox x:Name="FileListBox" ItemsSource="{Binding FileList}" SelectionMode="Multiple" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+        <ListBox x:Name="FileListBox" ItemsSource="{Binding FileList}" SelectionMode="Multiple" Grid.Row="2"
+                 Grid.Column="0" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <CheckBox Content="{Binding FilePath}" IsChecked="{Binding Include, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Click="FileListBoxCheckBox_Click"/>
+                    <CheckBox Content="{Binding FilePath}"
+                              IsChecked="{Binding Include, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Click="FileListBoxCheckBox_Click" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
             <ListBox.ItemContainerStyle>
@@ -66,39 +81,47 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
 
-        <DataGrid x:Name="TrackGrid" ItemsSource="{Binding TrackList}" CellEditEnding="OnCellEditEnding" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
+        <DataGrid x:Name="TrackGrid" ItemsSource="{Binding TrackList}" CellEditEnding="OnCellEditEnding"
+                  AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" Grid.Row="2"
+                  Grid.Column="2">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Include">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Include, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      IsChecked="{Binding Include, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn x:Name="LanguageCodeColumn" Header="Language" Binding="{Binding Language}"/>
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Codec" Binding="{Binding Codec}" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="LanguageCodeColumn" Header="Language" Binding="{Binding Language}" />
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Codec" Binding="{Binding Codec}" IsReadOnly="True" />
                 <DataGridTemplateColumn Header="Default Flag">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Default, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      IsChecked="{Binding Default, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Forced Flag">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Forced, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      IsChecked="{Binding Forced, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label Content="Output:" Height="27" Grid.Row="3" Grid.Column="0"/>
-        <TextBox x:Name="OutputTextBox" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" TextWrapping="Wrap" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"/>
-        <CheckBox x:Name="AttachmentsCheckbox" Grid.Column="2" Content="Remove attachments (Cover Art, Fonts, etc.)" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsChecked="False" Grid.Row="3"/>
+        <Label Content="Output:" Height="27" Grid.Row="3" Grid.Column="0" />
+        <TextBox x:Name="OutputTextBox" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"
+                 TextWrapping="Wrap" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" />
+        <CheckBox x:Name="AttachmentsCheckbox" Grid.Column="2" Content="Remove attachments (Cover Art, Fonts, etc.)"
+                  HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" IsChecked="False" Grid.Row="3" />
     </Grid>
 </Window>

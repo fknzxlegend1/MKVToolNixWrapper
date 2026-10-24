@@ -1,9 +1,8 @@
-﻿namespace MKVToolNixWrapper.Dtos
+﻿namespace MKVToolNixWrapper.Dtos;
+
+public sealed class FileMeta
 {
-    public class FileMeta
-    {
-        public string FilePath { get; set; }
-        public bool Include { get; set; }
-        public FileStatusEnum Status { get; set; }
-    }
+    public string FilePath { get; set; } = string.Empty;
+    public bool Include { get; set; }
+    public FileStatusEnum Status { get; set; }
 }
