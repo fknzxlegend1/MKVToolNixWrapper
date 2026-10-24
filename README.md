@@ -1,6 +1,17 @@
 # MKVToolNixWrapper
-This program is a wrapper for mkvmerge.exe which ships as part of MKVToolNix (collection of tools for .mkv files).
+This program is a wrapper for `mkvmerge`, which ships with MKVToolNix (a collection of tools for .mkv files).
 This programs purpose is to facilitate quick bulk editing of .MKV files, allowing you to edit audio, video and subtitle tracks. Editing includes removal of tracks, defaulting tracks, forcing tracks, renaming tracks and setting track language. Also accounts for files having differing track setup as part of the analyse functionality and flags offending files so they can be dealt with in isolation.
+
+# Linux (including CachyOS)
+The app uses Avalonia and supports native Linux desktops. Install MKVToolNix and ensure `mkvmerge` is available on `PATH`.
+
+Build a self-contained x64 Linux app from the repository root:
+
+```sh
+dotnet publish MKVToolNixWrapper/MKVToolNixWrapper.csproj -c Release -r linux-x64 --self-contained true
+```
+
+Run `MKVToolNixWrapper` from the resulting `MKVToolNixWrapper/bin/Release/net10.0/linux-x64/publish/` directory. Linux stores its selected `mkvmerge` path in the user configuration directory. File search includes `.mkv` and `.MKV`, and excludes `MasteredFiles` directories.
 
 # Download
 [Download the latest MKVToolNixWrapper](https://github.com/H3X1C/MKVToolNixWrapper/releases)
